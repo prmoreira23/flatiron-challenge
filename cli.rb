@@ -1,5 +1,9 @@
-require 'httparty'
-
+begin
+  require 'httparty'
+rescue LoadError
+  puts "LoadError: cannot load httparty.\nInstall it before running this program. (gem install httparty)"
+  exit
+end
 # This function handles requests to API, and can return a empty hash if the user
 # does not exists, a hash filled with the user information if the user was found,
 # and nil if there is an exception (i.e. network issues).
